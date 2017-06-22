@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+		.menu_wrap{
+			width: 200px;
+			position: fixed;
+			top:0;
+			left:0;
+			bottom: 0;
+			background:#333;
+			background-size: 100px 25px;
+			padding-top:66px;
+			transition: width ease .3s;
+		}
+		.menu_header{
+			width:100%;
+			position: absolute;
+			left:0;
+			top:0;
+			height:68px;
+			background:#333 url(img/logo.png) no-repeat 25px 16px;
+			z-index: 9;
+		}
+		.hide_btn{
+			display: block;
+			width:24px;
+			height:15px;
+			position: absolute;
+			top:20px;
+			right:10px;
+			background:url(img/hide_btn.png) no-repeat center center;
+			opacity: 1;
+		}
+		ul{
+			margin:0;
+			padding:0;
+		}
+		.menu_cont .item_first{
+			width:100%;
+		}
+		.menu_cont .item_content_first{
+			width:100%;
+			height:46px;
+			position: relative;
+		}
+		.item_content_first .menu_name_first{
+			color:#fff;
+			font-size:14px;
+			display: block;
+			height:46px;
+			margin-left:57px;
+			line-height:46px;
+			width: 143px;
+			transition: width 3s;
+			white-space: nowrap;
+		}
+		.item_content_first .menu_img_first{
+			position: absolute;
+			left:25px;
+			top:50%;
+			transform: translateY(-50%);
+		}
+		.menu_icon_first{
+			position: absolute;
+			color:#fff;
+			right:21px;
+			top:50%;
+			transform: translateY(-50%) rotate(-90deg);
+			transition: all .3s;
+		}
+		.menu_expand .item_content_first{
+			background-color: #108ee9;
+		}
+		.menu_expand .menu_icon_first{
+			transform: translateY(-50%) rotate(90deg);
+			transition: all .3s;
+		}
+		.menu_expand .sub_menu_wrap{
+			max-height: 100vh;
+			transition: max-height ease-in-out .5s;
+		}
+		.sub_menu_wrap li a{
+			height:40px;
+			color:#fff;
+			opacity: .6;
+			font-size:14px;
+			padding-left:57px;
+			line-height: 40px;
+			display: block;
+		}
+		.sub_menu_wrap li a:hover,.sub_menu_wrap li .sub_active{
+			background:#3f3f3f;
+			color:#108ee9;
+			opacity: 1;
+		}
+		.sub_menu_wrap{
+			max-height:0;
+			overflow: hidden;
+			transition: max-height ease-in-out .5s;
+		}
+		.min_style{
+			width:68px;
+			transition: width ease .2s;
+		}
+		.min_style .menu_header{
+			background-image: none;
+		}
+		.min_style .hide_btn{
+			opacity: 0;
+		}
+		.show_btn{
+			opacity: 0;
+		}
+		.min_style .show_btn{
+			display: block;
+			width:18px;
+			height:14px;
+			background: url(img/show_btn.png) no-repeat center center;
+			position: absolute;
+			left:50%;
+			top:21px;
+			transform:translateX(-50%);
+			opacity: 1;
+			transition: opacity ease .3s;
+		}
+		.min_style .menu_icon_first{
+			display: none;
+		}
+		.min_style .menu_name_first{
+			width:0;
+			overflow: hidden;
+			transition: width .3s;
+		}
+		.min_style .item_first{
+			position: relative;
+			height:46px;
+		}
+		.min_style .sub_menu_wrap{
+			width:168px;
+			height: auto;
+			max-height: 100vh;
+			position: absolute;
+			left: 68px;
+			background:#4a4a4a;
+			display: none;
+		}
+		.min_style .top0{
+			top:0;
+			max-height: 500px;
+			overflow-y:auto ;
+		}
+		.min_style .bottom0{
+			bottom:0;
+			max-height: 500px;
+			overflow-y:auto ;
+		}
+		.min_style .item_content_first{
+			/*position: absolute;
+			top:0;*/
+		}
+		/*.min_style .item_first:hover .sub_menu_wrap{
+			display: block;
+		}*/
+		.min_style .sub_menu_wrap li a{
+			padding-left:30px;
+		}
+		.min_style .sub_menu_wrap .min_style_title{
+			height:46px;
+			width:100%;
+			background: #3a3a3a;
+			padding-left: 20px;
+			line-height: 46px;
+			color:#fff;
+			font-size:14px;
+			display: block;
+		}
+		.min_style_title{
+			display: none;
+		}
+		#menu_scroll{
+			width:200px;
+			position: absolute;
+			top:66px;
+			bottom:0;
+			left:0;
+		}
+		.min_style #menu_scroll{
+			width:68px;
+		}
+	</style>
+	<body>
+		<div class="menu_wrap min_style">
+			<div class="menu_header">
+				<a class="hide_btn" href="javascript:;"></a>
+				<a class="show_btn" href="javascript:;"></a>
+			</div>
+			
+			<div id="menu_scroll">
+				<ul class="menu_cont">
+					<!--<li class='item_first'>
+						<div class="item_content_first">
+							<img class="menu_img_first" src="img/menu_01.png"/>
+							<a class='menu_name_first' href="javascript:;">资质管理</a>
+							<a class="menu_icon_first" href="javascript:;">></a>
+						</div>
+						<ul class="sub_menu_wrap">
+							<li class="min_style_title">资质管理</li>
+							<li><a href="javascript:;">商户资质管理</a></li>
+							<li><a href="javascript:;">商户资质管理</a></li>
+							<li><a href="javascript:;">商户资质管理</a></li>
+						</ul>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//菜单数据获取
+		$.ajax({
+			url:'menu.json',
+			type:'get',
+			success:function(res){
+				console.log(res);
+				var first_html = '',
+					sub_html = '';
+				res.forEach(function(item,index){
+					var subData = item.children,
+						sub_item_html = '';
+					for(var i = 0; i < subData.length; i++){
+						sub_item_html += '<li><a href="javascript:;">'+ subData[i].name +'</a></li>'
+					}
+					sub_html = `<ul class="sub_menu_wrap top0">
+						<li class="min_style_title">${item.name}</li>
+						${sub_item_html}
+					</ul>`
+					first_html += `<li class='item_first'>
+						<div class="item_content_first">
+							<img class="menu_img_first" src="img/menu_01.png"/>
+							<a class='menu_name_first' href="javascript:;">${item.name}</a>
+							<a class="menu_icon_first" href="javascript:;">></a>
+						</div>
+						${sub_html}
+					</li>`;
+				})
+				$('.menu_cont').append(first_html);
+			}
+		})
+		$('body').on('mouseover','.min_style .item_first',function(){
+			var sub_top = $(this).find('.sub_menu_wrap').offset(),
+				sub_height = $(this).find('.sub_menu_wrap').height(),
+				win_height = $(window).height();
+			
+			$(this).find('.sub_menu_wrap').show();
+			if($(this).find('.sub_menu_wrap').offset().top+sub_height>win_height){
+				$(this).find('.sub_menu_wrap').removeClass('top0').addClass('bottom0');
+				$(this).find('.sub_menu_wrap').off().on('mouseover',function(){
+					if(!!myScroll){
+						myScroll.destroy();
+						myScroll = null;
+					}
+				})
+			}
+			$(this).find('.item_content_first').off().on('mouseover',function(){
+				if(!myScroll){
+					myScroll = new IScroll('#menu_scroll',{
+						mouseWheel: true,
+					});
+				}
+			})
+		}).on('mouseout','.min_style .item_first',function(){
+			$(this).find('.sub_menu_wrap').hide();
+		})
+		
+		var myScroll = '';
+		$('.menu_cont').on('click', '.item_content_first',function(){
+			$(this).parent().toggleClass('menu_expand');
+			setTimeout(function () {
+		        myScroll.refresh();
+		    }, 800);
+		});
+		$('.show_btn').click(function(){
+			$('.menu_wrap').removeClass('min_style');
+		})
+		$('.hide_btn').click(function(){
+			$('.menu_wrap').addClass('min_style');
+		})
+		$(function(){
+			setTimeout(function(){
+				myScroll = new IScroll('#menu_scroll',{
+					mouseWheel: true,
+					preventDefaultException:{ className: /(^|\s)sub_menu_wrap(\s|$)/ },
+				});
+			},200)
+			
+		})
+	</script>
+</html>
